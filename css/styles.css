@@ -175,6 +175,7 @@ i.fa-whatsapp {
 }
 @media (max-width: 76.8rem) {
   .banner {
+    color: rgb(0,0,0);
     background-size: cover;
   }
 
