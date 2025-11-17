@@ -1,26 +1,38 @@
-# 📡 Portal de Serviços para Provedor de Internet (ISP)
+# 📡 Portal de Serviços & Autoatendimento ISP
 
-Sistema web desenvolvido para centralizar o atendimento ao cliente da FJ Telecom. O projeto atua como um Hub de Serviços, permitindo autoatendimento e reduzindo a demanda do suporte técnico via telefone.
+Sistema web desenvolvido para a FJ Telecom, atuando como um Hub central de serviços, financeiro e suporte técnico automatizado. O projeto foca na experiência do usuário (UX) para reduzir a demanda do call center através de ferramentas de autoatendimento.
 
 ## 🚀 Funcionalidades Principais
 
-* **Gestão Dinâmica de Planos:** Renderização dos cards de planos e preços via JavaScript (Conceito de Componentes), com área administrativa para alteração de valores em tempo real.
-* **Financeiro:** Acesso direto à emissão de 2ª via de boletos.
-* **Diagnóstico de Rede:** Página dedicada para teste de velocidade (SpeedTest) proprietário da rede.
-* **Cobertura:** Visualização de pontos de atendimento e locais com viabilidade técnica.
-* **Downloads:** Links diretos para baixar o App do assinante.
+### 🛠 Painel do Cliente & Serviços
+* **Gestão Dinâmica de Planos:** Renderização dos cards de planos via JavaScript, com painel administrativo oculto para alteração de preços e nomes em tempo real.
+* **Financeiro:** Emissão rápida de 2ª via de boletos.
+* **Diagnóstico de Rede:** SpeedTest proprietário integrado.
+* **Cobertura:** Mapa interativo de viabilidade técnica e Pontos de Presença (PoPs).
 
-## 🛠 Destaques Técnicos & Arquitetura
+### 📚 Base de Conhecimento (Troubleshooting)
+Focado na redução de chamados de nível 1 (N1):
+* **Guia de Solução de Falhas:** Tutoriais interativos para problemas comuns (ex: travamento de roteador, verificação de cabos).
+* **Onboarding de Streaming:** Passo a passo para o cliente configurar e acessar o serviço de mídia (Emby FJ Telecom).
+* **Conteúdo Educativo:** Área de vídeos e blog integrado para educação do usuário.
 
-### Integração de Comunicação "Serverless"
-Para otimizar a infraestrutura e reduzir custos com servidores de e-mail (SMTP/Apache), implementei uma solução baseada em **Intent/Protocol Handlers**:
-* **E-mail:** O sistema utiliza requisições diretas (`mailto`) para invocar o cliente de e-mail nativo do usuário (Outlook, Gmail App, etc), garantindo entrega imediata sem necessidade de backend intermediário.
-* **WhatsApp:** Integração direta com a API de deep linking do WhatsApp para abertura de chat com o suporte.
+### 📢 Mídia & Engajamento
+* **Galeria Visual:** Exibição dos pontos físicos e estrutura da empresa.
+* **Integração Social:** Feed e destaques de postagens do Instagram.
 
-### Manipulação de DOM
-O sistema não depende de HTML estático para os preços. Um script popula o DOM dinamicamente, facilitando a manutenção: basta alterar o objeto de dados para que todos os planos no site sejam atualizados instantaneamente.
+## 🛠 Destaques Técnicos
+
+### Integração "Serverless" para Comunicação
+Utilização de **Protocol Handlers** para integrar e-mail e WhatsApp:
+* O sistema invoca diretamente os clientes de e-mail e APIs de mensagem do dispositivo do usuário, garantindo comunicação instantânea sem a complexidade/custo de manutenção de servidores SMTP dedicados.
+
+### Arquitetura Orientada a Componentes (Vanilla JS)
+Apesar de não utilizar frameworks pesados, a estrutura do código segue o princípio de componentes:
+* Dados dos planos isolados em objetos JSON.
+* Renderização do DOM feita via loops e injeção de templates, permitindo atualizações globais de interface apenas alterando a fonte de dados.
 
 ## 💻 Tecnologias
-* HTML5 & CSS3 (Responsivo)
+* HTML5 & CSS3 (Design Responsivo)
 * JavaScript (ES6+)
-* Integrações de API externas (Maps, SpeedTest)
+* Integração com serviços de Streaming (Emby)
+* APIs de Mapas e Redes Sociais
